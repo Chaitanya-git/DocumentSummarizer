@@ -29,7 +29,7 @@ def split_lines(doc):
 
 def split_sentences(doc):
     try:
-        nltk.data.find('tokenizers/punkt.zip')
+        nltk.data.find('tokenizers/punkt')
     except LookupError:
         nltk.download('punkt')
     return sent_tokenize(doc)
