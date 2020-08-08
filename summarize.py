@@ -2,8 +2,10 @@
 import fire
 import bs4
 import pprint
+import nltk
 import urllib.request
 from urllib.request import Request, urlopen
+from nltk.tokenize import sent_tokenize
 from LDASummarizer import LDASummarizer as Summarizer
 
 def get_webpage_content(url, para_lim=10):
@@ -25,7 +27,11 @@ def split_lines(doc):
     return doc.split("\n")
 
 def split_sentences(doc):
-    raise NotImplementedError
+    try:
+        nltk.data.find('tokenizers/punkt.zip')
+    except LookupError:
+        nltk.download('punkt')
+    return sent_tokenize(doc)
 
 def print_summary(src, from_url:bool=False, tokenize_sentences:bool=False, num_topics:int=10, print_topics:bool=False):
     pp = pprint.PrettyPrinter(indent=4)
