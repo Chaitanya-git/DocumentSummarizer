@@ -1,16 +1,19 @@
 import sklearn
+import re
 import numpy as np
 from sklearn.decomposition import LatentDirichletAllocation as LDA
 from sklearn.feature_extraction.text import CountVectorizer
+
+def preprocess(corpus):
+    corpus = [re.sub(r"\b\w*\d+\w*\b", "", doc) for doc in corpus]
+    return corpus
 
 class LDASummarizer():
     def __init__(self, corpus, num_topics=10):
         self.vectorizer = CountVectorizer(stop_words='english')
         self.lda = LDA(n_components=num_topics, random_state=0)
         self.corpus = corpus
-        
-        self.count_vectorized_corpus  = self.vectorizer.fit_transform(corpus)
-
+        self.count_vectorized_corpus  = self.vectorizer.fit_transform(preprocess(corpus))
         self.lda.fit(self.count_vectorized_corpus)
     
     def get_topic_breakdown(self, n_top_words=5):

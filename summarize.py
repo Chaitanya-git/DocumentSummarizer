@@ -44,6 +44,7 @@ def print_summary(src=sys.stdin, from_url:bool=False, tokenize_sentences:bool=Fa
     else:
         with open(src) as f:
             text = f.read()
+
     corpus = []
     if tokenize_sentences:
         corpus = split_sentences(text)
