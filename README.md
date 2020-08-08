@@ -3,6 +3,14 @@ Simple document summarization tool that summarizes documents using LDA
 
 This tool serves as a simple demo showcasing how topic modelling can be used to summarize documents. This tool uses LDA to discover topics and then summarizes the document by selecing sentences from each topic.
 
+## Setup:
+First, clone this repo and cd into the cloned directory. Then, inside the directory, run:
+```
+pip install .
+```
+to install the required dependencies.
+  
+
 ## Usage:
 ### When running from the command line:
 The general format for the command is:
