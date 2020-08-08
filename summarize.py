@@ -4,6 +4,7 @@ import bs4
 import pprint
 import nltk
 import urllib.request
+import sys
 from urllib.request import Request, urlopen
 from nltk.tokenize import sent_tokenize
 from LDASummarizer import LDASummarizer as Summarizer
@@ -33,11 +34,13 @@ def split_sentences(doc):
         nltk.download('punkt')
     return sent_tokenize(doc)
 
-def print_summary(src, from_url:bool=False, tokenize_sentences:bool=False, num_topics:int=10, print_topics:bool=False):
+def print_summary(src=sys.stdin, from_url:bool=False, tokenize_sentences:bool=False, num_topics:int=10, print_topics:bool=False):
     pp = pprint.PrettyPrinter(indent=4)
     text = ""
     if from_url:
         text = get_webpage_content(src)
+    elif src == sys.stdin:
+        text = src.read()
     else:
         with open(src) as f:
             text = f.read()
