@@ -42,7 +42,7 @@ Text data can also be piped into the script like so:
 ```
 cat file.txt | ./summarize.py
 ```
-This allows us to do things like trying to summarize log files. For example, we can try analyzing kernel logs for the current boot to figure out what the most typical messages look like so:
+This allows us to do things like trying to summarize log files. For example, we can try analyzing kernel logs for the current boot to figure out what the most typical messages look like by running:
 ```
 journalctl -xek | ./summarize.py 
 ```
