@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import fire
 import bs4
 import pprint
