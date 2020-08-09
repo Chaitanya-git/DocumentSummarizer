@@ -23,7 +23,7 @@ The general format for the command is:
 | --src= | By default, the script takes input from stdin. Alternatively the path to a file can be supplied here. |
 | --from_url | This flag indicates that the string passed using the `--src` option is a web URL. The script will scrape content from the webpage and try summarizing that. |
 | --tokenize_sentences | By default, the script splits the document into multiple paragraph to apply LDA. Specifying this flag will split the document into sentences instead |
-| --num_topics= | The number of topics we should try to discover in the document. This will also be the maximum number paragraphs or sentences we will have in the summary |
+| --num_topics= | The number of topics we should try to discover in the document (Default value: 10). This will also be the maximum number paragraphs or sentences we will have in the summary |
 | --print_topics | Print the discovered topics instead of the summary |
 
 #### Examples:
